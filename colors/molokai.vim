@@ -8,24 +8,21 @@
 " by Hamish Stuart Macpherson
 "
 
-hi clear
-
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
     " complaining
-    hi clear
     if exists("syntax_on")
         syntax reset
     endif
 endif
-let g:colors_name="molokai"
+let g:colors_name="mol"
 
 if exists("g:molokai_original")
     let s:molokai_original = g:molokai_original
 else
     let s:molokai_original = 0
 endif
-
+hi clear LineNr
 
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
@@ -113,20 +110,16 @@ if s:molokai_original == 1
    hi Normal          guifg=#F8F8F2 guibg=#272822
    hi Comment         guifg=#75715E
    hi CursorLine                    guibg=#3E3D32
-   hi CursorLineNr    guifg=#FD971F               gui=none
    hi CursorColumn                  guibg=#3E3D32
    hi ColorColumn                   guibg=#3B3A32
-   hi LineNr          guifg=#BCBCBC guibg=#3B3A32
    hi NonText         guifg=#75715E
    hi SpecialKey      guifg=#75715E
 else
    hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
    hi Comment         guifg=#7E8E91
    hi CursorLine                    guibg=#293739
-   hi CursorLineNr    guifg=#FD971F               gui=none
    hi CursorColumn                  guibg=#293739
    hi ColorColumn                   guibg=#232526
-   hi LineNr          guifg=#465457 guibg=#232526
    hi NonText         guifg=#465457
    hi SpecialKey      guifg=#465457
 end
@@ -138,11 +131,9 @@ if &t_Co > 255
    if s:molokai_original == 1
       hi Normal                   ctermbg=234
       hi CursorLine               ctermbg=235   cterm=none
-      hi CursorLineNr ctermfg=208               cterm=none
    else
       hi Normal       ctermfg=252 ctermbg=233
       hi CursorLine               ctermbg=234   cterm=none
-      hi CursorLineNr ctermfg=208               cterm=none
    endif
    hi Boolean         ctermfg=135
    hi Character       ctermfg=144
@@ -226,8 +217,7 @@ if &t_Co > 255
 
    hi Comment         ctermfg=59
    hi CursorColumn                ctermbg=236
-   hi ColorColumn                 ctermbg=236
-   hi LineNr          ctermfg=250 ctermbg=236
+   "hi ColorColumn                 ctermbg=236
    hi NonText         ctermfg=59
 
    hi SpecialKey      ctermfg=59
@@ -235,7 +225,6 @@ if &t_Co > 255
    if exists("g:rehash256") && g:rehash256 == 1
        hi Normal       ctermfg=252 ctermbg=234
        hi CursorLine               ctermbg=236   cterm=none
-       hi CursorLineNr ctermfg=208               cterm=none
 
        hi Boolean         ctermfg=141
        hi Character       ctermfg=222
@@ -265,7 +254,6 @@ if &t_Co > 255
        hi Visual                      ctermbg=238
 
        hi Comment         ctermfg=244
-       hi LineNr          ctermfg=239 ctermbg=235
        hi NonText         ctermfg=239
        hi SpecialKey      ctermfg=239
    endif
